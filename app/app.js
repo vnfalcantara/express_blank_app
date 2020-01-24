@@ -13,7 +13,7 @@ class App {
   }
 
   requireDirectory(path) {
-    const files = fs.readdirSync(path)
+    const files = fs.readdirSync(`${__dirname}/${path}`)
 
     files.forEach(file => {
       console.log(color.GREEN, file)

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node -r ./dotenv/config index.js",
-    "dev": "NODE_ENV=dev node -r ./dotenv/config index.js",
-    "debug": "NODE_ENV=debug node -r ./dotenv/config inspect index.js",
+    "start": "NODE_ENV=production node -r ./dotenv/config app/index.js",
+    "dev": "NODE_ENV=dev node -r ./dotenv/config app/index.js",
+    "debug": "NODE_ENV=debug node -r ./dotenv/config inspect app/index.js",
     "test": "NODE_ENV=test jest"
   },
   "author": "Vinicius Alcantara <vnfalcantara@gmail.com>",
