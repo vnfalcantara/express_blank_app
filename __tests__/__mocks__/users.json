@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Jimi Hendrix",
+    "email": "jimihendrix@alcantara.com",
+    "password": "baf9yg8saigfiqgaukast5sagifas9",
+    "createdAt": "2020-05-01T23:57:41.182Z"
+  },
+
+  {
+    "name": "Jack White",
+    "email": "jackwhite@alcantara.com",
+    "password": "baf9yg8saigfiqgaukast5sagifas9",
+    "createdAt": "2020-05-01T23:57:41.182Z"
+  },
+
+  {
+    "name": "Jim Marshall",
+    "email": "jimmarshall@alcantara.com",
+    "password": "baf9yg8saigfiqgaukast5sagifas9",
+    "createdAt": "2020-05-01T23:57:41.182Z"
+  }
+]

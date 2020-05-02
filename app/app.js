@@ -8,8 +8,7 @@ const { color } = require('./constants')
 class App {
 
   constructor() {
-    this.app = express()
-    this.run()
+    this.express = express()
   }
 
   requireDirectory(path, passApp) {
@@ -18,16 +17,16 @@ class App {
     files.forEach(file => {
       console.log(color.GREEN, file)
       
-      if (passApp) require(`${__dirname}/${path}/${file}`)(this.app)
+      if (passApp) require(`${__dirname}/${path}/${file}`)(this.express)
       else require(`${__dirname}/${path}/${file}`)
     })
   }
 
   loadMiddlewares() {
     console.log(color.BLUE, '\nLOADING MIDDLEWARES')
-    this.app.use(cors())
-    this.app.use(errorHandler)
-    this.app.use(bodyParser.json())
+    this.express.use(cors())
+    this.express.use(errorHandler)
+    this.express.use(bodyParser.json())
   }
 
   loadModels() {
@@ -51,13 +50,13 @@ class App {
   }
 
   run() {
-    this.loadMiddlewares()
     this.loadModels()
     this.loadControllers()
     this.loadRoutes()
+    this.loadMiddlewares()
     this.loadBootstraps()
   }
 
 }
 
-module.exports = new App().app
+module.exports = new App()

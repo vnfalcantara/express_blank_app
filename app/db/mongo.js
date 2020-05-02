@@ -1,9 +1,11 @@
 const mongoose = require('mongoose')
 const { color } = require('../constants')
 
+mongoose.set('useCreateIndex', true)
+
 class Mongo {
-  
-  constructor() {}
+
+  constructor() { }
 
   connect() {
     mongoose.connection.on('error', error => {
@@ -11,7 +13,7 @@ class Mongo {
       process.exit(-1)
     })
 
-    return mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true})
+    return mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   }
 
 }

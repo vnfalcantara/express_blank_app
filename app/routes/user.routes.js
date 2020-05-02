@@ -1,5 +1,9 @@
+/*
 const UserController = require('../controllers/user.controller')
 const user = new UserController()
+*/
+
+const user = require('../controllers/user.controller')
 
 module.exports = app => {
   
@@ -7,9 +11,9 @@ module.exports = app => {
 
   app.post(basePath, user.insert)
   app.get(basePath, user.find)
-  app.get(`${basePath}/:_id`, user.findOne)
-  app.put(basePath, user.update);
-  app.patch(basePath, user.update);
-  app.delete(basePath, user.delete)
+  app.get(`${basePath}/:id`, user.findOne)
+  app.put(basePath, user.update)
+  app.patch(basePath, user.update)
+  app.delete(`${basePath}/:id`, user.delete)
 
 }

@@ -3,7 +3,7 @@ const User = mongoose.model('User')
 
 class UserService {
 
-  constructor() { }
+  constructor() {}
 
   insert(data) {
     let user = new User(data)
@@ -15,7 +15,12 @@ class UserService {
   }
 
   findOne(query = {}, fields = {}) {
+    console.log(query)
     return User.findOne(query, fields)
+  }
+
+  count(query) {
+    return User.countDocuments(query)
   }
 
   update(query, data) {
@@ -24,10 +29,6 @@ class UserService {
 
   remove(query) {
     return User.remove(query)
-  }
-
-  count(query) {
-    return User.count(query)
   }
 
   login(email, password) {}
