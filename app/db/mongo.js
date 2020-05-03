@@ -18,4 +18,4 @@ class Mongo {
 
 }
 
-module.exports = Mongo
+module.exports = new Mongo()

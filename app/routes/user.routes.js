@@ -1,8 +1,3 @@
-/*
-const UserController = require('../controllers/user.controller')
-const user = new UserController()
-*/
-
 const user = require('../controllers/user.controller')
 
 module.exports = app => {

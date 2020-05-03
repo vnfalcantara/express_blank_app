@@ -1,12 +1,12 @@
 const app = require('./app')
-const Mongo = require('./db/mongo')
-const mongo = new Mongo()
+const mongo = require('./db/mongo')
 const { color } = require('./constants')
 
 mongo.connect()
   .then(() => {
     const { express } = app
+    const { PORT } = process.env
 
-    app.run()
-    express.listen(process.env.PORT, () => console.log(color.GREEN, `\nAPP RUNNING ON PORT ${process.env.PORT}`))
+    app.start()
+    express.listen(PORT, () => console.log(color.GREEN, `\nAPP RUNNING ON PORT ${PORT}`))
   })
