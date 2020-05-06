@@ -6,8 +6,11 @@ exports.insert = data => {
   return movie.save()
 }
 
-exports.find = (query = {}, fields = {}, sort) => {
-  return Movie.find(query, fields).sort(sort)
+exports.find = (params = {}, fields = {}, sort, skip, limit) => {
+  return Movie.find(params, fields)
+    .sort(sort)
+    .skip(skip)
+    .limit(limit)
 }
 
 exports.findOne = (query = {}, fields) => {

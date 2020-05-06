@@ -11,11 +11,22 @@ exports.insert = async (req, res) => {
   }
 }
 
-exports.find = async (req, res) => {
-  let { params, fields, sort } = req.query
+exports.count = async (req, res) => {
+  let { params } = req.query
 
   try {
-    const movies = await movieService.find(params, fields, sort)
+    const movies = await movieService.count(params)
+    res.json(movies)
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+exports.find = async (req, res) => {
+  let { params, fields, sort, skip, limit } = req.query
+
+  try {
+    const movies = await movieService.find(params, fields, sort, Number(skip), Number(limit))
     res.json(movies)
   } catch (error) {
     throw new Error(error)
@@ -23,12 +34,21 @@ exports.find = async (req, res) => {
 }
 
 exports.findOne = async (req, res) => {
-  let { params, fields } = req.query
+  const _id = req.params.id
+  const { fields } = req.query
 
   try {
-    const movie = await movieService.findOne(params, fields)
+    const movie = await movieService.findOne({ _id }, fields)
     res.json(movie)
   } catch (error) {
     throw new Error(error)
   }
 }
+
+exports.update = async (req, res) => {}
+
+exports.updateMany = async (req, res) => {}
+
+exports.remove = async (req, res) => {}
+
+exports.removeMany = async (req, res) => {}
